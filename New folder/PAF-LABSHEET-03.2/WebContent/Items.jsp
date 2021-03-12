@@ -1,8 +1,10 @@
+<link rel="stylesheet" href="Views/bootstrap.min.css">
 <%@page import="com.Item" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
 <% 
+	//Insert iten---------------------------------
 	if (request.getParameter("itemCode") != null){
 			
 			Item item = new Item();
@@ -15,6 +17,20 @@
 			session.setAttribute("statusMsg",stsmsg);
 		
 		}
+
+	
+	//Delete item---------------------------------
+	if(request.getParameter("itemID") != null){
+		
+		Item item = new Item();
+	    
+		String stsMsg1 = item.deleteitems(request.getParameter("itemID"));
+		session.setAttribute("statusmsg",stsMsg1);
+		
+		
+		
+	}
+	
 
 %>
 
